@@ -1,10 +1,13 @@
+import 'retangulo.dart';
 import 'circulo.dart';
 import 'figura.dart';
 
 void main() {
   Circulo circle = Circulo(1, 1, 2);
+  Retangulo quadrado = Retangulo(2, 2, 2, 2);
+  Retangulo retangulo = Retangulo(3, 3, 2, 4);
 
-  var list = [circle];
+  var list = [circle, quadrado, retangulo];
   double areaTotal = 0.0;
   for (var figure in list){
     areaTotal += figure.area();
@@ -20,6 +23,16 @@ void trataFigura(Figura figura) {
       print("Criado Circulo em X=${figura.x} Y=${figura.y}");
       print("Area: ${figura.area()}");
       print("Diametro: $diametro\n");
+      break;
+    case Retangulo:
+      var isQuadrado = (figura as Retangulo).isQuadrado();
+      print("Criado Retangulo em X=${figura.x} Y=${figura.y}");
+      print("Area: ${figura.area()}");
+      if (isQuadrado) {
+        print("Eh um quadrado!\n");
+      } else {
+        print("Não eh um quadrado!\n");
+      }
       break;
     default:
       print("Figura não identificada ");
