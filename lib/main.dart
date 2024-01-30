@@ -1,3 +1,4 @@
+import 'triangulo.dart';
 import 'retangulo.dart';
 import 'circulo.dart';
 import 'figura.dart';
@@ -6,8 +7,9 @@ void main() {
   Circulo circle = Circulo(1, 1, 2);
   Retangulo quadrado = Retangulo(2, 2, 2, 2);
   Retangulo retangulo = Retangulo(3, 3, 2, 4);
+  Triangulo triangulo = Triangulo(4, 4, 2, 5, 4);
 
-  var list = [circle, quadrado, retangulo];
+  var list = [circle, quadrado, retangulo, triangulo];
   double areaTotal = 0.0;
   for (var figure in list){
     areaTotal += figure.area();
@@ -33,6 +35,11 @@ void trataFigura(Figura figura) {
       } else {
         print("Não eh um quadrado!\n");
       }
+      break;
+    case Triangulo:
+      print("Criado Triangulo em X=${figura.x} Y=${figura.y}");
+      print("Area: ${figura.area()}");
+      (figura as Triangulo).getTipo();
       break;
     default:
       print("Figura não identificada ");
